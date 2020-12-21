@@ -1,11 +1,14 @@
 import React from "react";
+
 import SearchFrom from "./components/SearchFrom";
+import GeocodeResult from "./components/GeocodeResult";
+import "./App.scss";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      place: "東京",
+      place: "winwin",
     };
   }
 
@@ -15,9 +18,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <h1>GoogleMap</h1>
         <SearchFrom onSubmit={(place) => this.handlePlaceSubmit(place)} />
+        <GeocodeResult
+          address={this.state.address}
+          lat={this.state.lat}
+          lng={this.state.lng}
+        />
       </div>
     );
   }
