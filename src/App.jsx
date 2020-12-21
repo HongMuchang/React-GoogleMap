@@ -4,13 +4,21 @@ import SearchFrom from "./components/SearchFrom";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      place: "東京",
+    };
+  }
+
+  handlePlaceSubmit(place) {
+    console.log(place);
   }
 
   render() {
     return (
-      <React.Fragment>
-        <SearchFrom />
-      </React.Fragment>
+      <div>
+        <h1>GoogleMap</h1>
+        <SearchFrom onSubmit={(place) => this.handlePlaceSubmit(place)} />
+      </div>
     );
   }
 }
